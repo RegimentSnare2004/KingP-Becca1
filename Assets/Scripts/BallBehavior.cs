@@ -18,6 +18,7 @@ public class BallBehavior : MonoBehaviour
     public float cooldown;
     public bool launching;
     public float launchDuration;
+    public float timeLaunchStart;
     public float timeLastLaunch;
 
     public int secondsToMaxSpeed;
@@ -38,15 +39,39 @@ public class BallBehavior : MonoBehaviour
     }
 
     public void launch()
+
     {
+        targetPosition = target.transform.position;
+        if(launching == false)
+        { 
+            launching = true;
+          
+        }
         
+    }
+
+    public bool onCooldown()
+    {
+        bool result = true;
+        float timeSinceLastLaunch = Time.time - timeLastLaunch;
+        if(timeSinceLastLaunch > cooldown)
+        {
+            return result = false;
+        }
+        return result;
+    }
+
+    public void startCooldown()
+    {
+        launching = false;
+        timeLastLaunch = Time.time;
     }
 
     void Start()
     {
          secondsToMaxSpeed = 30;
-        //minSpeed = 0.25f;
-        //maxSpeed = 7f;
+        minSpeed = 0.25f;
+        maxSpeed = 7f;
         targetPosition = getRandomPosition();
         minX = -10.9f;
         maxX = 11.1f;
@@ -59,20 +84,50 @@ public class BallBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() { 
+        if (onCooldown() == false){
+            if (launching == true)
+            {
+                float currentLaunchTime = Time.time - timeLaunchStart;
+                if (currentLaunchTime > launchDuration)
+                {
+                    startCooldown();
+                }
+            }
+            else
+            {
+                Debug.Log("becca");
+                launch();
+            }
+        }
+
         Vector2 currentPosition = gameObject.GetComponent<Transform>().position;
         float distance = Vector2.Distance(currentPosition, targetPosition);
         if(distance > 0.1f)
         {
             float difficulty = getDifficultyPercentage();
-            float currentSpeed = Mathf.Lerp(minSpeed, maxSpeed,difficulty);
+            float currentSpeed;
+            if(launching == true)
+            {
+                float launchingForHowLong = Time.time - timeLaunchStart;
+                if(launchingForHowLong > launchDuration)
+                {
+                    startCooldown();
+                }
+                currentSpeed = Mathf.Lerp(minLaunchSpeed, maxLaunchSpeed, difficulty);
+            }
+            else{
+                currentSpeed = currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, difficulty);
+            }
             currentSpeed = currentSpeed * Time.deltaTime;
             Vector2 newPosition = Vector2.MoveTowards(currentPosition, targetPosition, currentSpeed);
             transform.position = newPosition;
         }
-        else
+        else //You are at target
         {
+            if(launching == true){
+                startCooldown();
+            }
             targetPosition = getRandomPosition();
         }
     }

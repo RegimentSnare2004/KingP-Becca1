@@ -100,10 +100,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facca1352fac63147afb25066e30074d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
+  minX: -10.9
+  maxX: 11.1
+  minY: -4.3
+  maxY: 4.2
   minSpeed: 2
   maxSpeed: 10
+  target: {fileID: 6628972921830657613, guid: c6f783f32458b214fad73ddec8796742, type: 3}
+  minLaunchSpeed: 5
+  maxLaunchSpeed: 20
+  minTimeToLaunch: 0
+  maxTimeToLaunch: 0
+  cooldown: 10
+  launching: 0
+  launchDuration: 5
+  timeLaunchStart: 0
+  timeLastLaunch: 0
   secondsToMaxSpeed: 0
