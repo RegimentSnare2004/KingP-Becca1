@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2262449997877154468}
   m_Layer: 0
   m_Name: ball-cat
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facca1352fac63147afb25066e30074d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -10.9
-  maxX: 11.1
-  minY: -4.3
-  maxY: 4.2
+  minX: -4
+  maxX: 8
+  minY: -4
+  maxY: 4
   minSpeed: 2
   maxSpeed: 10
   target: {fileID: 6628972921830657613, guid: c6f783f32458b214fad73ddec8796742, type: 3}
@@ -119,6 +119,8 @@ MonoBehaviour:
   timeLaunchStart: 0
   timeLastLaunch: 0
   secondsToMaxSpeed: 0
+  body: {fileID: 0}
+  rerouting: 0
 --- !u!58 &8153816154097438066
 CircleCollider2D:
   m_ObjectHideFlags: 0

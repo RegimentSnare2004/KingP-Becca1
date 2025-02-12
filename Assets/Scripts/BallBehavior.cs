@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class BallBehavior : MonoBehaviour
@@ -35,6 +36,14 @@ public class BallBehavior : MonoBehaviour
         return v;
     }
 
+    public void setBounds(float miX, float maX, float miY, float maY)
+    {
+        minX = miX;
+        maxX = maX;
+        minY = miY;
+        maxY = maY; 
+    }
+
     public float getDifficultyPercentage()
     {
         float difficulty = Mathf.Clamp01(Time.timeSinceLevelLoad / secondsToMaxSpeed);
@@ -59,6 +68,11 @@ public class BallBehavior : MonoBehaviour
           
         }
         
+    }
+
+    public void setTarget(GameObject pin)
+    {
+        target = pin; 
     }
     public void Reroute(Collision2D collision)
     {
@@ -111,6 +125,7 @@ public class BallBehavior : MonoBehaviour
 
     void Start()
     {
+        initialPosition(); 
          secondsToMaxSpeed = 30;
         minSpeed = 0.25f;
         maxSpeed = 7f;
