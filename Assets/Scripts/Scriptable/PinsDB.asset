@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440d1ffb63e5c0c4b8bb8c1cd2574c85, type: 3}
+  m_Name: PinsDB
+  m_EditorClassIdentifier: 
+  pins:
+  - name: Chef
+    prefab: {fileID: 6628972921830657613, guid: c6f783f32458b214fad73ddec8796742, type: 3}
+  - name: Eye
+    prefab: {fileID: 2381857371656417226, guid: 25afe10ddc5b3f24daf3287bdf80e338, type: 3}
+  - name: Cardinal
+    prefab: {fileID: 4842428869671815595, guid: fb97623d2c47c2e4499d84fd4d9b0677, type: 3}
+  - name: Basic
+    prefab: {fileID: 7605161959256615790, guid: 1c117086e694c2342b10b0fdc374f073, type: 3}
+  - name: Chocolate
+    prefab: {fileID: 5346934999538181440, guid: 167b5a6336802a340879bc63931b70c1, type: 3}
+  - name: SciFi
+    prefab: {fileID: 2989591874100290011, guid: 94057178b08dae24ba8266c4299d1478, type: 3}
+  - name: Dog
+    prefab: {fileID: 5886351015390119740, guid: 81d95fecd7856814cbbb6c221ff04ff2, type: 3}
+  - name: Frog
+    prefab: {fileID: 3593918454676205082, guid: e6d41830cfecaaf4fad4f2867f9a447b, type: 3}
